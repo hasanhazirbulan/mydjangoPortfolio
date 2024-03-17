@@ -1,0 +1,68 @@
+{% include 'base/main.html' %}
+{% load static %}
+{% block content %}
+
+<style type="text/css">
+	#user_pic{
+		height: 200px;
+		width: 200px;
+		border-radius: 50%;
+		border:5px solid #888;
+		margin:0 auto;
+		object-fit: cover;
+	}
+
+	#user-info-box{
+		text-align: center;
+	}
+</style>
+
+<div class="main-container">
+	<br>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card card-body" id="user-info-box">
+				<img id="user_pic" src="{{profile.profile_pic.url}}">
+				<br>
+				<h2>{{profile}}</h2>
+				<p>Email: {{profile.email}}</p>
+				<hr>
+				<p>{{profile.bio}}</p>
+				<hr>
+				<a class="btn btn-info btn-block" href="{% url 'update_profile' %}">Edit Profile</a>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card card-body">
+				<h3>My Projects:</h3>
+				<hr>
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th>Name</th>
+							<th>Date</th>
+							<th>Language</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tr>
+						<td>City Promotion</td>
+						<td>11-08-2023</td>
+						<td>Swift</td>
+						<td><a class="btn btn-dark btn-sm" href="https://github.com/hasanhazirbulan/CityPromotion">View Code</a></td>
+					</tr>
+
+					<tr>
+						<td>Quiz Game</td>
+						<td>11-01-2024</td>
+						<td>Java</td>
+
+						<td><a class="btn btn-dark btn-sm" href="https://github.com/hasanhazirbulan/QuizGame">View Code</a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
